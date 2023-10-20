@@ -70,6 +70,8 @@ void AAuraEnemy::Die()
 {
 	SetLifeSpan(LifeSpan);
 	Super::Die();
+	if (AuraAIController) AuraAIController->GetBlackboardComponent()->SetValueAsBool(FName("Dead"), true);
+
 }
 
 void AAuraEnemy::SetCombatTarget_Implementation(AActor* InCombatTarget)
